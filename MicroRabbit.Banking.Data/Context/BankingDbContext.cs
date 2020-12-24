@@ -8,11 +8,6 @@ namespace MicroRabbit.Banking.Data.Context
 {
     public class BankingDbContext : DbContext
     {
-        //public BankingDbContext(DbContextOptions options) : base(options)
-        //{
-
-        //}
-
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
             dbContextOptionsBuilder.UseSqlServer(@"Server=EDWIN-PC;Database=BankingDB;Integrated Security=True;MultipleActiveResultSets=true");
