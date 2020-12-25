@@ -1,4 +1,6 @@
+using MediatR;
 using MicroRabbit.Banking.Data.Context;
+using MicroRabbit.Domain.Core.Bus;
 using MicroRabbit.Infra.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,10 +30,9 @@ namespace MicroRabbit.Banking.Api
             });
 
             services.AddMvc();
-
-            RegisterServices(services);
-
             services.AddControllers();
+            services.AddMediatR(typeof(IEventBus));
+            RegisterServices(services);
         }
 
         private void RegisterServices(IServiceCollection services)

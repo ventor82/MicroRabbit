@@ -6,9 +6,6 @@ using MicroRabbit.Banking.Domain.Interfaces;
 using MicroRabbit.Domain.Core.Bus;
 using MicroRabbit.Infra.Bus;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MicroRabbit.Infra.IoC
 {
@@ -17,12 +14,12 @@ namespace MicroRabbit.Infra.IoC
         public static void RegisterServices(IServiceCollection services)
         {
             //Domain Bus
-            services.AddTransient<IEventBus, RabbitMQBus>();
+             services.AddTransient<IEventBus, RabbitMQBus>();
 
             //Application Services
             services.AddTransient<IAccountService, AccountService>();
 
-            //Data
+            ////Data
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<BankingDbContext>();
         }
